@@ -10,6 +10,7 @@ import CameraScreen from "../screens/CameraScreen";
 import StoriesScreen from "../screens/StoriesScreen";
 import SpotlightScreen from "../screens/SpotlightScreen";
 import ChatScreen from "../screens/ChatScreen";
+import EventScreen from "../screens/EventScreen";
 
 // Stacks
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -62,6 +63,10 @@ export default function UserStack({ route, navigation }) {
       barStyle={{ backgroundColor: "black" }}
       initialRouteName="Camera"
     >
+       <Tab.Screen
+        name="Events"
+        component={EventScreen}
+      />
       <Tab.Screen
         name="Map"
         component={MapScreen}
@@ -102,6 +107,8 @@ const getTabIcon = (routeName, focused) => {
     case "Stories":
       return focused ? <GroupFill /> : <GroupOutline />;
     case "Spotlight":
+      return focused ? <PlayFill /> : <PlayOutline />;
+    case "Events":
       return focused ? <PlayFill /> : <PlayOutline />;
     default:
       return null;
